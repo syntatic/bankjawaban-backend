@@ -79,7 +79,7 @@ return [
     |
     */
 
-    'attributesForFaceting' => null,
+    'attributesForFaceting' => ['searchable(course_name)', 'searchable(quiz_name)'],
 
     /*
     |--------------------------------------------------------------------------
@@ -155,4 +155,16 @@ return [
     | configuration, just use the command `scout:sync` to get remote settings in this file.
     |
     */
+    'renderingContent' => [
+        'facetOrdering' => [
+            'facets' => [
+                'order' => ['course_name', 'quiz_name'],
+            ],
+            'values' => [
+                'course_name' => [
+                    'sortRemainingBy' => 'count',
+                ],
+            ],
+        ],
+    ],
 ];
